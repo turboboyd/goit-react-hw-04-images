@@ -45,3 +45,9 @@ export function Searchbar(props) {
     </header>
   );
 }
+
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onSearchEmpty: PropTypes.func.isRequired,
+};
