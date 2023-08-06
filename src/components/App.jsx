@@ -58,9 +58,9 @@ export function App() {
         setStatus('rejected');
         setLoder(false);
         setError(error);
-        console.log(errore);
+        console.log(error);
       });
-  }, [request, page]);
+  }, [request, page, errore]);
 
   const handleLoadMore = () => {
     setPage(prev => prev + 1);
