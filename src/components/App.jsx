@@ -43,7 +43,7 @@ export function App() {
           return;
         }
         setLoder(false);
-        setImages(prevState => [...prevState, ...images.hits]);
+        setImages(prev => [...prev, ...newImages.hits]);
         setStatus('resolved');
         setLoder(false);
         setShowButton(true);
