@@ -60,7 +60,7 @@ export function App() {
         setError(error);
         console.log(error);
       });
-  }, [request, page, errore]);
+  }, [request, page]);
 
   const handleLoadMore = () => {
     setPage(prev => prev + 1);
