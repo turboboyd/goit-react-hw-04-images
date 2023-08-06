@@ -16,7 +16,7 @@ export function App() {
   const [status, setStatus] = useState('idle');
   const [loder, setLoder] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [errore, setError] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = ({ query }) => {
     if (query === request) {
@@ -58,7 +58,6 @@ export function App() {
         setStatus('rejected');
         setLoder(false);
         setError(error);
-        console.log(error);
       });
   }, [request, page]);
 
@@ -69,7 +68,7 @@ export function App() {
   return (
     <div className={css.App}>
       <Searchbar onSubmit={handleSubmit} />
-
+      {error && console.log(error)}
       {loder && <Loader />}
       {status === 'rejected' && (
         <>
