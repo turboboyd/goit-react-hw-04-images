@@ -16,10 +16,12 @@ export function App() {
   const [status, setStatus] = useState('idle');
   const [loder, setLoder] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = ({ query }) => {
+    if (query === request) {
+      return;
+    }
     setRequest(query.toLowerCase());
     setImages([]);
     setPage(1);
@@ -33,25 +35,28 @@ export function App() {
     fetchImages(request, page)
       .then(newImages => {
         if (newImages.hits.length === 0) {
+          console.log('0: ', 0);
           noImagesFound(request);
+          setLoder(false);
+          setShowButton(false);
           setStatus('idle');
-          setLoading(false);
           return;
         }
         setLoder(false);
         setImages([...images, ...newImages.hits]);
         setStatus('resolved');
-        setLoading(false);
+        setLoder(false);
         setShowButton(true);
         setRequest(request);
         if (Math.ceil(newImages.totalHits / 12) === page) {
           warnNoImages();
+          setLoder(false);
           setShowButton(false);
         }
       })
       .catch(error => {
         setStatus('rejected');
-        setLoading(false);
+        setLoder(false);
         setError(error);
       });
   }, [request, page]);

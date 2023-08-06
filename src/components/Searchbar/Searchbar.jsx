@@ -8,15 +8,10 @@ export function Searchbar(props) {
   const [query, setQuery] = useState('');
   
   const handleInputChange = e => {
-    if (query === e.currentTarget.value) {
-      setQuery('');
-      return;
-    }
     setQuery(e.currentTarget.value);
   };
 
   const handleSubmit = e => {
-    console.log('e: ', e);
     e.preventDefault();
     if (query.trim() === '') {
       return earchEmpty();
@@ -49,5 +44,4 @@ export function Searchbar(props) {
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onSearchEmpty: PropTypes.func.isRequired,
 };
