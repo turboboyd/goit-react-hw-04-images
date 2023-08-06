@@ -5,7 +5,6 @@ import { fetchImages } from '../servises/api-images';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { warnNoImages, noImagesFound, errorToastify } from './Notifix/Notifix';
-import PropTypes from 'prop-types';
 import css from './App.module.css';
 import { ToastContainer } from 'react-toastify';
 
