@@ -16,7 +16,7 @@ export function App() {
   const [status, setStatus] = useState('idle');
   const [loder, setLoder] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [error, setError] = useState('');
+  const [errore, setError] = useState('');
 
   const handleSubmit = ({ query }) => {
     if (query === request) {
@@ -43,7 +43,7 @@ export function App() {
           return;
         }
         setLoder(false);
-        setImages([...images, ...newImages.hits]);
+        setImages(prevState => [...prevState, ...images.hits]);
         setStatus('resolved');
         setLoder(false);
         setShowButton(true);
@@ -58,6 +58,7 @@ export function App() {
         setStatus('rejected');
         setLoder(false);
         setError(error);
+        console.log(errore);
       });
   }, [request, page]);
 
