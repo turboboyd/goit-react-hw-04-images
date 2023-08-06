@@ -68,7 +68,7 @@ export function App() {
   return (
     <div className={css.App}>
       <Searchbar onSubmit={handleSubmit} />
-      {error && console.log('Something went wrong')}
+
       {loder && <Loader />}
       {status === 'rejected' && (
         <>
